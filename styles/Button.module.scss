@@ -1,0 +1,116 @@
+.button {
+  font-size: 14px;
+  padding: 8px 16px;
+  text-align: center;
+  font-style: normal;
+  line-height: 20px;
+  font-weight: 500;
+  font-family: "Noto Sans JP";
+  border-radius: 6px;
+  border: none;
+  box-shadow: none;
+  background-color: #e0e0e0;
+  color: #3f3f3f;
+
+  /* Colors */
+  &.default {
+    background-color: #e0e0e0;
+    box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
+
+    &:hover, &:focus {
+      background-color: #AEAEAE;
+    }
+  }
+
+  &.primary {
+    background-color: #2962ff;
+    box-shadow: 0px 2px 3px rgba(41, 98, 255, 0.2);
+    color: #ffffff;
+
+    &:hover, &:focus {
+      background-color: #0039CB;
+    }
+  }
+
+  &.secondary {
+    background-color: #455a64;
+    box-shadow: 0px 2px 3px rgba(69, 90, 100, 0.2);
+    color: #ffffff;
+
+    &:hover, &:focus {
+      background-color: #1C313A;;
+    }
+  }
+
+  &.danger {
+    background-color: #d32f2f;
+    box-shadow: 0px 2px 3px rgba(211, 47, 47, 0.2);
+    color: #ffffff;
+
+    &:hover, &:focus {
+      background-color: #9A0007;
+    }
+  }
+
+  /* Variants */
+  &.outline {
+    background-color: transparent;
+    border: 1px solid #3D5AFE;
+    color: #3D5AFE;
+
+    &:hover, &:focus {
+      background-color: rgba(41, 98, 255, 0.1);
+    }
+  }
+
+  &.text {
+    background-color: transparent;
+    color: #3D5AFE;
+    box-shadow: none;
+
+    &:disabled {
+      background-color: transparent;
+      color: #9e9e9e;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    &:hover, &:focus {
+      background-color: rgba(41, 98, 255, 0.1);
+    }
+  }
+
+  /* States */
+  &:disabled {
+    background-color: #e0e0e0;
+    color: #9e9e9e;
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &[data-disable-shadow="true"] {
+    box-shadow: none;
+  }
+
+  /* Sizes */
+  &.sm {
+    padding: 6px 12px;
+  }
+
+  &.lg {
+    padding: 11px 22px;
+  }
+
+  /* Icons */
+  :global {
+    .material-icons {
+      margin: auto 8px;
+
+      &.md-14 {
+        font-size: 14px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
