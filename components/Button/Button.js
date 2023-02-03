@@ -10,9 +10,11 @@ export default function Button({
   startIcon,
   variant,
   children,
+  ...buttonProps // Other button props like role
 }) {
   return (
     <button
+      {...buttonProps}
       className={classnames(
         styles.button,
         styles[color] || styles.default,
