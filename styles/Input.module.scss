@@ -1,0 +1,146 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans JP';
+    color: #828282;
+
+    &.error {
+        input, textarea {
+            border:  1px solid #D32F2F;
+        }
+        label {
+            color: #D32F2F;
+        }
+        span {
+            color: #D32F2F;
+        }
+
+        &:hover {
+            input, textarea {
+                border: 1px solid #333333;
+            }
+            label {
+                color: #333333;
+            }
+            span {
+                color: inherit;
+            }
+        }
+
+        &:focus-within {
+            input, textarea {
+                border: 1px solid #D32F2F;
+            }
+            label {
+                color: #D32F2F;
+            }
+            span {
+                color: #D32F2F;
+            }
+        }
+    }
+
+    &:focus-within {
+        input, textarea {
+            border: 1px solid #2962FF;
+        }
+        label {
+            color: #2962FF;
+        }
+        span {
+            color: #2962FF;
+        }
+    }
+}
+
+.label {  
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    color: #333333;
+    margin-bottom: 4px;
+}
+
+.inputContainer {
+    position: relative;
+    width: fit-content;
+
+    :global {
+        .material-icons {
+            position: absolute;
+            top: 20px;
+    
+            &.md-18 {
+                font-size: 18px;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &.fullWidth {
+        width: 100%;
+
+        & input {
+            width: 100%;
+        }
+    }
+
+    span:first-child {
+        left: 12px;
+
+        & + input {
+            padding-left: 38px; 
+        }
+
+        &.sm {
+            top: 12px;
+        }
+    }
+    span:last-child {
+        right: 12px;
+
+        &.sm {
+            top: 12px;
+        }
+    }
+}
+
+.input {
+    border: 1px solid #828282;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 18px 12px;
+    color: #333333;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+
+    &.sm {
+        padding: 10px 12px;
+    }
+
+    &:has(+ span) {
+        padding-right: 38px;
+    }
+
+    &:disabled {
+        background: #F2F2F2;
+        border: 1px solid #E0E0E0;
+    }
+
+    &:hover:not(:disabled) {
+        border: 1px solid #333333;
+    }
+}
+
+.helperText {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    margin-top: 4px;
+}

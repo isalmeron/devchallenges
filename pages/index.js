@@ -22,7 +22,10 @@ export default function Home() {
         <div>
           <ul>
             <li>
-              <Link href="/buttons">Buttons challenge</Link>
+              <Link href="/buttons">Button challenge</Link>
+            </li>
+            <li>
+              <Link href="/inputs">Input challenge</Link>
             </li>
           </ul>
         </div>
