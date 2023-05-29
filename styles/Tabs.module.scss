@@ -1,0 +1,54 @@
+.container {
+    width: 100%;
+}
+
+.tabs {
+    height: 2.2rem;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 600;
+    border-bottom: 1px solid #BDBDBD;
+    padding: 0 3rem;
+    font-family: 'Montserrat';
+    width: 100%;
+
+    & > li {
+        text-align: center;
+        list-style-type: none;
+        min-width: 5.2rem;
+        cursor: pointer;
+
+        &.active {
+            border-bottom: 4px solid #2F80ED;
+        }
+    }
+}
+
+.content {
+    width: 100%;
+    min-height: 25rem;
+    padding: 1.2rem 0;
+}
+
+.inputBar {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+
+    & .input {
+        flex: 1;
+    }
+}
+
+.todoList {
+    padding: 2rem 0;
+    
+    & li {
+        list-style-type: none;
+        padding-bottom: 1.6rem;
+
+        &.done {
+            text-decoration: line-through;
+        }
+    }
+}

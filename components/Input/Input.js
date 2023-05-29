@@ -14,6 +14,7 @@ export default function Input({
   size,
   startIcon,
   value,
+  onChange,
   ...inputProps
 }) {
   return (
@@ -30,7 +31,9 @@ export default function Input({
           name={name}
           placeholder={placeholder}
           disabled={disabled}
-          defaultValue={value}
+          value={value}
+          onChange={onChange}
+          {...inputProps}
         ></textarea>
       )}
       {!multiline && (
@@ -51,8 +54,10 @@ export default function Input({
             type="text"
             name={name}
             placeholder={placeholder}
-            defaultValue={value}
+            value={value}
             disabled={disabled}
+            onChange={onChange}
+            {...inputProps}
           />
           {endIcon && <span className="material-icons md-18">{endIcon}</span>}
         </span>
