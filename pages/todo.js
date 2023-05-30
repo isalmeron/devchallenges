@@ -2,7 +2,6 @@ import Button from "@/components/Button/Button";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import Input from "@/components/Input/Input";
 import Tabs from "@/components/Tabs/Tabs";
-import styles from '@/styles/Tabs.module.scss';
 import { useState } from "react";
 
 const TAB_STATES = {
@@ -47,6 +46,16 @@ export default function Todo() {
     setTodoList(todoClone);
   }
 
+  const onDeleteItem = (index) => {
+    const todoListClone = [...todoList];
+    todoListClone.splice(index, 1);
+    setTodoList(todoListClone);
+  }
+
+  const onDeleteAll = () => {
+    setTodoList([]);
+  }
+
   return (
     <>
       <div className="container">
@@ -55,11 +64,11 @@ export default function Todo() {
           tabs={Object.keys(TAB_STATES)}
           onChangeTab={onTabClick}
         >
-          <div className={styles.inputBar}>
-            <div className={styles.input}>
+          <div className="inputBar">
+            <div className="input">
               <Input
                 placeholder="add details"
-                size="sm"
+                size="md"
                 onChange={onInputChange}
                 onKeyDown={onEnterKeyDown}
                 value={todoValue}
@@ -69,7 +78,7 @@ export default function Todo() {
             <div>
               <Button 
                 color="primary"
-                size="lg"
+                size="xl"
                 onClick={onAddClick}
               >
                 Add
@@ -77,13 +86,13 @@ export default function Todo() {
             </div>
           </div>
           <div>
-            <ul className={styles.todoList}>
+            <ul className="todoList">
               {todoList
                 .filter(todo => {
                   if (tabState === 'All') return true;
                   return todo.status === TAB_STATES[tabState];
                 })
-                .map((todo, todoIdx) => 
+                .map((todo, todoIdx) =>
                   <li key={todo.value}>
                     <Checkbox
                       checked={todo.status}
@@ -91,10 +100,14 @@ export default function Todo() {
                       label={todo.value}
                       id={todo.id}
                     />
+                    {TAB_STATES[tabState] === true && <p className="material-icons-outlined iconButton" onClick={() => { onDeleteItem(todoIdx) }}>delete</p>}
                   </li>
                 )
               }
             </ul>
+            {TAB_STATES[tabState] === true && <div className="deleteContainer">
+              <Button color="danger" size="lg" startIcon="delete" onClick={onDeleteAll}>delete all</Button>
+            </div>}
           </div>
         </Tabs>
       </div>
@@ -107,6 +120,42 @@ export default function Todo() {
             flex-direction: column;
             padding: 1rem 2rem;
             gap: 2rem;
+          }
+
+          .inputBar {
+              display: flex;
+              gap: 1.5rem;
+              width: 100%;
+          }
+
+          .inputBar .input {
+            flex: 1;
+          }
+
+          .todoList {
+            padding: 2rem 0;
+          }
+
+          .todoList li {
+            list-style-type: none;
+            padding-bottom: 1.6rem;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .todoList li > [type="checkbox"]:checked + label {
+            text-decoration: line-through;
+          }
+
+          .iconButton {
+            color: #BDBDBD;
+            cursor: pointer;
+          }
+
+          .deleteContainer {
+            width: 100%;
+            display: flex;
+            justify-content: end;
           }
         `}
       </style>

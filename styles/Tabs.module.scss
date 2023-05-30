@@ -29,26 +29,3 @@
     min-height: 25rem;
     padding: 1.2rem 0;
 }
-
-.inputBar {
-    display: flex;
-    gap: 1.5rem;
-    width: 100%;
-
-    & .input {
-        flex: 1;
-    }
-}
-
-.todoList {
-    padding: 2rem 0;
-    
-    & li {
-        list-style-type: none;
-        padding-bottom: 1.6rem;
-
-        & [type="checkbox"]:checked + label {
-            text-decoration: line-through;
-        }
-    }
-}
