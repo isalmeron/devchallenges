@@ -26,6 +26,7 @@ export default function Input({
       )}
       {multiline && inputProps?.rows && (
         <textarea
+          {...inputProps}
           rows={inputProps.rows}
           className={styles.input}
           name={name}
@@ -33,7 +34,6 @@ export default function Input({
           disabled={disabled}
           value={value}
           onChange={onChange}
-          {...inputProps}
         ></textarea>
       )}
       {!multiline && (
@@ -50,6 +50,7 @@ export default function Input({
             </span>
           )}
           <input
+            {...inputProps}
             className={classNames(styles.input, styles[size])}
             type="text"
             name={name}
@@ -57,7 +58,6 @@ export default function Input({
             value={value}
             disabled={disabled}
             onChange={onChange}
-            {...inputProps}
           />
           {endIcon && <span className="material-icons md-18">{endIcon}</span>}
         </span>

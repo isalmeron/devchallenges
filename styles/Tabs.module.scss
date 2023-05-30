@@ -47,7 +47,7 @@
         list-style-type: none;
         padding-bottom: 1.6rem;
 
-        &.done {
+        & [type="checkbox"]:checked + label {
             text-decoration: line-through;
         }
     }
